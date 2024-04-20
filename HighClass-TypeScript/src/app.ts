@@ -13,8 +13,8 @@ type ElevatedEmployee = Admin & Employee;
 
 const e1: ElevatedEmployee = {
   // Admin과 Employee의 속성 중 하나라도 없으면 에러 발생
-  name: 'Max',
-  privileges: ['create-server'],
+  name: "Max",
+  privileges: ["create-server"],
   startDate: new Date(),
 };
 
@@ -22,34 +22,34 @@ const e1: ElevatedEmployee = {
 type Combinable = string | number;
 type Numeric = number | boolean;
 
-type Universal = Combinable & Numeric; 
+type Universal = Combinable & Numeric;
 
-function add(a: number, b: number): number;   // 함수 오버로딩 => 선언한 함수 위에 인자의 타입과 반환 형의 타입만 지정하는 형태로 사용
-function add(a: string, b: string): string;   // 함수 오버로딩을 사용하는 경우 => 타입스크립트가 스스로 반환 값 타입을 식별할 수 없는 경우에 사용
+function add(a: number, b: number): number; // 함수 오버로딩 => 선언한 함수 위에 인자의 타입과 반환 형의 타입만 지정하는 형태로 사용
+function add(a: string, b: string): string; // 함수 오버로딩을 사용하는 경우 => 타입스크립트가 스스로 반환 값 타입을 식별할 수 없는 경우에 사용
 function add(a: number, b: string): string;
 function add(a: string, b: number): string;
 function add(a: Combinable, b: Combinable) {
   // 유니언 타입의 유연성이란 이점을 유지하면서 런타임에 코드가 제대로 실행되도록 해줌 => 타입 가드 (typeof를 활용한 타입 가드)
-  if (typeof a === 'string' || typeof b === 'string') {
+  if (typeof a === "string" || typeof b === "string") {
     return a.toString() + b.toString();
   }
   return a + b;
 }
 
-const result = add('Max', 'Manu');
-result.split(' ');
+const result = add("Max", "Manu");
+result.split(" ");
 
 const fetchUserData = {
-  id: 'u1',
-  name: 'Max',
-  job: { title: 'CEO', description: 'My own company' }
+  id: "u1",
+  name: "Max",
+  job: { title: "CEO", description: "My own company" },
 };
 
-console.log(fetchUserData?.job?.title);   // 옵셔널 체이닝
+// console.log(fetchUserData?.job?.title);   // 옵셔널 체이닝
 
-const userInput = '안녕';
+const userInput = "안녕";
 
-const storedData = userInput ?? 'DEFAULT';  // null 병합 연산자 -> 확인하려는 값이 null 이거나 undefined라면 그 때 'DEFAULT'를 사용 그렇지 않은 경우 들어온 값 그대로 사용
+const storedData = userInput ?? "DEFAULT"; // null 병합 연산자 -> 확인하려는 값이 null 이거나 undefined라면 그 때 'DEFAULT'를 사용 그렇지 않은 경우 들어온 값 그대로 사용
 
 console.log(storedData);
 
@@ -105,7 +105,6 @@ console.log(storedData);
 // useVehicle(v1);
 // useVehicle(v2);
 
-
 // // 타입 가드의 특별한 종류 => 구별된 유니언
 // // 각 객체에 type이라는 하나의 공통 속성을 추가했기 때문에 구별된 유니언 이라고 칭함
 // interface Bird {
@@ -136,7 +135,6 @@ console.log(storedData);
 // moveAnimal({type: 'bird', flyingSpeed:10});
 // moveAnimal({type: 'horse', runningSpeed:40});
 
-
 // // 형 변환
 // // 타입스크립트는 HTML 코드를 읽고 분석하지 않음
 // // 따라서 DOM 구조를 단순히 HTMLElement로만 인식하게 됨
@@ -154,7 +152,6 @@ console.log(storedData);
 // if (userInputElement) {
 //   (userInputElement as HTMLInputElement).value= 'Hi there!';                          // 따라서 null인지 아닌지 확신할 수 없는 상황에서는 형 변환을 속성을 이용하는 곳에서 해야 함
 // }
-
 
 // // 인덱스 타입
 // interface ErrorContainer {
