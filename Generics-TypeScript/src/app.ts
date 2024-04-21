@@ -102,4 +102,4 @@ function createCourseGoal(
 }
 
 const names: Readonly<string[]> = ["Max", "Anna"]; // Readonly<> 타입은 해당 데이터를 더 이상 변경할 수 없도록 함 (문자열에만 국한되지 않고 객체 등 가능)
-// names.push('Manu');
+// names.push("Manu");
